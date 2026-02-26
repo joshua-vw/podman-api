@@ -3,20 +3,22 @@
 A simple Flask API containerized with Podman
 
 ## Prerequisites
-- Tested on macOS with Podman version 5.8.0 installed via HomeBrew
+- Tested on macOS with Podman version 5.8.0 and Podman-Compose version 1.5.0 installed via HomeBrew
 
-## Build
+
+## Build & Run
 ```bash
-podman build -t myimage .
+podman compose up --build
 ```
 
-## Run
-```bash
-podman run --rm --name mycontainer -p 8000:8000 myimage
-```
-
-## Quick test
+## Test API health
 In a seperate terminal:
 ```bash 
 curl http://localhost:8000/health
+```
+
+## Test DB health
+In a seperate terminal:
+```bash
+curl http://localhost:8000/db-health
 ```
